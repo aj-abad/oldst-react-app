@@ -16,6 +16,19 @@ const Products = (props) => {
 
   //ref for element that triggers loading products
   const bottomScrollLoader = useRef(null);
+  useLayoutEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) loadNextPage();
+      },
+      { threshold: 1 }
+    );
+    observer.observe(bottomScrollLoader.current);
+    loadInitialProducts();
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
   const loadInitialProducts = () => {
     axios
       .get(

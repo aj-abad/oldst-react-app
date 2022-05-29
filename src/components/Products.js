@@ -38,6 +38,20 @@ const Products = (props) => {
       })
       .catch((err) => alert(err));
   };
+  const prefetchProducts = () => {
+    axios
+      .get(
+        `products?_page=${currentPage.current + 1}&_limit=${PAGE_SIZE}&${
+          sortBy.current && `_sort=${sortBy.current}`
+        }`
+      )
+      .then(({ data }) => {
+        cachedProducts.current = data;
+        isLoadingRef.current = false;
+        setIsLoading(false);
+      })
+      .catch((err) => alert(err));
+  };
   return (
     <main>
       <div id="scroll-observer" ref={bottomScrollLoader} />

@@ -13,6 +13,9 @@ const Products = (props) => {
   const isLoadingRef = useRef(true);
   const cachedProducts = useRef(null);
   const currentPage = useRef(1);
+
+  //ref for element that triggers loading products
+  const bottomScrollLoader = useRef(null);
   return (
     <main>
     </main>

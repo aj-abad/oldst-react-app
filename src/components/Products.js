@@ -177,7 +177,9 @@ const Products = (props) => {
             <Fragment key={j}>
               <Product product={product} />
               {getIterator(i, j) % PRODUCTS_BEFORE_AD === 0 && (
-                <Ad lastAd={lastAd} setLastAd={setLastAd} />
+                <div className="my-4">
+                  <Ad lastAd={lastAd} setLastAd={setLastAd} />
+                </div>
               )}
             </Fragment>
           ))}

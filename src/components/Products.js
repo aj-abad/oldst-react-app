@@ -65,6 +65,10 @@ const Products = (props) => {
       })
       .catch((err) => alert(err));
   };
+  const getIterator = (i, j) => {
+    return PAGE_SIZE * i + 1 + j;
+  };
+
   return (
     <main>
       <div id="scroll-observer" ref={bottomScrollLoader} />

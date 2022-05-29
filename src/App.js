@@ -1,3 +1,5 @@
+import { useState } from "react";
+import Ad from "./components/Ad";
 const App = () => {
   const [lastAd, setLastAd] = useState(null);
 

@@ -16,6 +16,12 @@ const Ad = (props) => {
   return (
     <div>
       <p>But first, a word from our sponsors:</p>
+      <img
+        src={src && `http://localhost:8000/ads/?r=${src}`}
+        alt="ad"
+        className={isLoaded ? "img-fluid" : "d-none"}
+        onLoad={() => setIsLoaded(true)}
+      />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import getDateDiff from "../plugins/getDateDiff";
 const Product = ({ product }) => {
   const { date, face, id, price, size } = product;
 
+  //assuming that native JavaScript APIs are allowed
   const formattedPrice = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -24,6 +25,11 @@ const Product = ({ product }) => {
         <small> Size: {size} </small>
       </div>
       <div className="product-preview p-4 user-select-none d-flex align-items-center">
+        {/* Sets the font size of the preview to be the product's
+            size multipied by the font-size of its parent element,
+            which is 1 on large screens and 20% of the viewport
+            width on smaller screens, just to make it responsive
+          */}
         <code style={{ fontSize: `${size}em`, whiteSpace: "nowrap" }}>
           {face}
         </code>

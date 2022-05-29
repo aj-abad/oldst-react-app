@@ -2,6 +2,8 @@ import { useState, useLayoutEffect, useRef } from "react";
 import { Fragment } from "react";
 import axios from "axios";
 import Ad from "./Ad";
+import Product from "./Product";
+
 const Products = (props) => {
   //define constants
   const PAGE_SIZE = 20;
@@ -169,6 +171,18 @@ const Products = (props) => {
           </label>
         </div>
       </aside>
+      {products.map((page, i) => (
+        <div className="product-page" key={i}>
+          {page.map((product, j) => (
+            <Fragment key={j}>
+              <Product product={product} />
+              {getIterator(i, j) % PRODUCTS_BEFORE_AD === 0 && (
+                <Ad lastAd={lastAd} setLastAd={setLastAd} />
+              )}
+            </Fragment>
+          ))}
+        </div>
+      ))}
       {isLoading && (
         <div className="p-5 bg-light d-flex justify-content-center align-items-center">
           <span className="h5 font-weight-regular">Loading...</span>

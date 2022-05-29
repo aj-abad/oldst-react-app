@@ -1,2 +1,28 @@
 .product {
+  border: 1px solid #dfdfdf;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 1fr 2fr;
+}
+
+.product-preview {
+  font-size: 1px;
+}
+
+@media (max-width: 1365px) {
+  .product-info {
+    grid-area: pi;
+  }
+
+  .product-preview {
+    font-size: 0.2vw;
+    grid-area: pp;
+  }
+
+  .product {
+    grid-template-columns: unset;
+    grid-template-areas:
+      "pp"
+      "pi";
+  }
 }

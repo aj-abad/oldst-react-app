@@ -22,6 +22,11 @@ const Ad = (props) => {
         className={isLoaded ? "img-fluid" : "d-none"}
         onLoad={() => setIsLoaded(true)}
       />
+
+      {/* To prevent layout reflows */}
+      <div className={isLoaded ? "d-none" : "skeleton-loader"}>
+        Loading ad...
+      </div>
     </div>
   );
 };

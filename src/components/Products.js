@@ -69,6 +69,16 @@ const Products = (props) => {
     return PAGE_SIZE * i + 1 + j;
   };
 
+  const setSort = (sort) => {
+    setIsEndReached(false);
+    sortBy.current = sort;
+    setProducts([]);
+    cachedProducts.current = null;
+    setIsLoading(true);
+    currentPage.current = 1;
+    loadInitialProducts();
+  };
+
   return (
     <main>
       <div id="scroll-observer" ref={bottomScrollLoader} />

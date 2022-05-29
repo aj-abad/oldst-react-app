@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 const Ad = (props) => {
   const { lastAd, setLastAd } = props;
   const [src, setSrc] = useState(null);
@@ -13,6 +15,12 @@ const Ad = (props) => {
     setSrc(src);
   }, []);
   
+  //only display the ad when a src is set
+  useEffect(() => {
+    if (src === null) return;
+    setLastAd(src);
+  }, [src]);
+
   return (
     <div>
       <p>But first, a word from our sponsors:</p>

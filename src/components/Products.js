@@ -127,6 +127,48 @@ const Products = (props) => {
 
   return (
     <main>
+      <aside className="mb-4">
+        <label className="d-inline-block mb-2"> Sort by </label>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="sort-by-size"
+            disabled={isLoading}
+            onChange={() => setSort("size")}
+          />
+          <label className="form-check-label" htmlFor="sort-by-size">
+            Size
+          </label>
+        </div>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="sort-by-price"
+            disabled={isLoading}
+            onChange={() => setSort("price")}
+          />
+          <label className="form-check-label" htmlFor="sort-by-price">
+            Price
+          </label>
+        </div>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="sort-by-date"
+            disabled={isLoading}
+            onChange={() => setSort("date")}
+          />
+          <label className="form-check-label" htmlFor="sort-by-date">
+            Date
+          </label>
+        </div>
+      </aside>
       {isLoading && (
         <div className="p-5 bg-light d-flex justify-content-center align-items-center">
           <span className="h5 font-weight-regular">Loading...</span>

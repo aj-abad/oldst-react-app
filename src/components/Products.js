@@ -18,6 +18,7 @@ const Products = (props) => {
   const bottomScrollLoader = useRef(null);
   return (
     <main>
+      <div id="scroll-observer" ref={bottomScrollLoader} />
     </main>
   );
 };

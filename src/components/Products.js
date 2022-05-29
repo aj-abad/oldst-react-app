@@ -136,6 +136,19 @@ const Products = (props) => {
             className="form-check-input"
             type="radio"
             name="flexRadioDefault"
+            id="sort-by-id"
+            disabled={isLoading}
+            onChange={() => setSort("id")}
+          />
+          <label className="form-check-label" htmlFor="sort-by-id">
+            ID
+          </label>
+        </div>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
             id="sort-by-size"
             disabled={isLoading}
             onChange={() => setSort("size")}

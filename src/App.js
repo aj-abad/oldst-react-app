@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Ad from "./components/Ad";
+import Products from "./components/Products";
+
 const App = () => {
   const [lastAd, setLastAd] = useState(null);
 
@@ -16,9 +18,10 @@ const App = () => {
             the header 
             useContext might be better for more complex use cases
           */}
+        <Products lastAd={lastAd} setLastAd={setLastAd} />
       </div>
     </div>
   );
-}
+};
 
 export default App;

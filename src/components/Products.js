@@ -65,6 +65,17 @@ const Products = (props) => {
       })
       .catch((err) => alert(err));
   };
+  const loadNextPage = () => {
+    if (isLoadingRef.current || !cachedProducts.current) return;
+    setProducts((products) => [...products, cachedProducts.current]);
+    if (cachedProducts.current.length === 0) return setIsEndReached(true);
+    cachedProducts.current = null;
+    currentPage.current++;
+    isLoadingRef.current = true;
+    setIsLoading(true);
+    prefetchProducts();
+  };
+
   const getIterator = (i, j) => {
     return PAGE_SIZE * i + 1 + j;
   };

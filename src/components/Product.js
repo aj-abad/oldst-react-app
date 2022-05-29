@@ -14,7 +14,9 @@ const Product = ({ product }) => {
     <div className="product p-4">
       <div className="row">
         <div className="col-lg-4">
-          <div className="h5 mb-0">{formattedPrice}</div>
+          <span className="h4 d-block mb-2">Face <small className="text-muted">#{id}</small></span>
+          <span className="h5">{formattedPrice}</span>
+          <br />
           <small className="text-muted">Added {formattedDate}</small>
         </div>
         <div className="col-lg-8 overflow-hidden">

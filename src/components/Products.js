@@ -127,6 +127,11 @@ const Products = (props) => {
 
   return (
     <main>
+      {isLoading && (
+        <div className="p-5 bg-light d-flex justify-content-center align-items-center">
+          <span className="h5 font-weight-regular">Loading...</span>
+        </div>
+      )}
       <div id="scroll-observer" ref={bottomScrollLoader} />
     </main>
   );

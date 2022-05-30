@@ -4,11 +4,12 @@ const getDateDiff = (date) => {
   const now = new Date();
   const diff = now.getTime() - date.getTime();
 
-  const DAY_MILLIS = 1000 * 60 * 60 * 24;
+  const HOUR_MILLIS = 1000 * 60 * 60;
+  const DAY_MILLIS = HOUR_MILLIS * 24;
   const WEEK_MILLIS = DAY_MILLIS * 7;
 
   const getDaysDiff = (diff) => Math.floor(diff / DAY_MILLIS);
-  const getHoursDiff = (diff) => Math.floor(diff / (1000 * 60 * 60));
+  const getHoursDiff = (diff) => Math.floor(diff / HOUR_MILLIS);
 
   //return the number of hours elapsed if less than a day ago
   if (diff < DAY_MILLIS) {

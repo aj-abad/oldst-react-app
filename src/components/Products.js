@@ -199,7 +199,7 @@ const Products = (props) => {
           ))}
         </div>
       ))}
-      {isLoading && <LoadingIndicator/>}
+      {isLoading && <LoadingIndicator />}
       {isEndReached && (
         <div className="d-flex justify-content-center align-items-center bg-light p-5 mt-3">
           <span className="h3">~ end of catalogue ~</span>

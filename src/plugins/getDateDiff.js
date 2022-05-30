@@ -8,10 +8,12 @@ const getDateDiff = (date) => {
   const WEEK_MILLIS = DAY_MILLIS * 7;
 
   const getDaysDiff = (diff) => Math.floor(diff / DAY_MILLIS);
- 
-  //return 'Today' if less than a day ago
+  const getHoursDiff = (diff) => Math.floor(diff / (1000 * 60 * 60));
+
+  //return the number of hours elapsed if less than a day ago
   if (diff < DAY_MILLIS) {
-    return "today";
+    const hoursDiff = getHoursDiff(diff);
+    return `${hoursDiff} hour${hoursDiff !== 1 ? "s" : ""} ago`;
   }
 
   //return the number of days elapsed if less than a week ago
@@ -19,7 +21,7 @@ const getDateDiff = (date) => {
     const daysDiff = getDaysDiff(diff);
     return `${daysDiff} day${daysDiff !== 1 ? "s" : ""} ago`;
   }
-  
+
   //return a formatted date if more than a week ago
   return date.toLocaleDateString("en-US", {
     year: "numeric",

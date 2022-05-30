@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import axios from "axios";
 import Ad from "./Ad";
 import Product from "./Product";
+import LoadingIndicator from "./LoadingIndicator";
 
 const Products = (props) => {
   //define constants
@@ -14,7 +15,7 @@ const Products = (props) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isEndReached, setIsEndReached] = useState(false);
-  
+
   /**
    * I'm primarily a Vue dev so I don't fully get the gotchas of state hooks
    * Hence my use of useRefs for callbacks outside the render function
@@ -35,9 +36,9 @@ const Products = (props) => {
         /**
          * Has a caveat where if the items are appended when the bottom of the page is visible,
          * the observer callback won't be triggered until the observed element leaves and re-enters the viewport
-         * 
-         * I could either use the less performant scroll event listener 
-         * 
+         *
+         * I could either use the less performant scroll event listener
+         *
          * Or I could check if the observed element is visible
          * when the products are prefetched and immediately append them
          *
@@ -198,11 +199,7 @@ const Products = (props) => {
           ))}
         </div>
       ))}
-      {isLoading && (
-        <div className="p-5 bg-light d-flex justify-content-center align-items-center">
-          <span className="h5 font-weight-regular">Loading...</span>
-        </div>
-      )}
+      {isLoading && <LoadingIndicator/>}
       {isEndReached && (
         <div className="d-flex justify-content-center align-items-center bg-light p-5 mt-3">
           <span className="h3">~ end of catalogue ~</span>

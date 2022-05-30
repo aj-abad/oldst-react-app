@@ -14,6 +14,7 @@ const getDateDiff = (date) => {
   //return the number of hours elapsed if less than a day ago
   if (diff < DAY_MILLIS) {
     const hoursDiff = getHoursDiff(diff);
+    if (hoursDiff === 0) return `less than an hour ago`;
     return `${hoursDiff} hour${hoursDiff !== 1 ? "s" : ""} ago`;
   }
 

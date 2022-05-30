@@ -112,7 +112,7 @@ const Products = (props) => {
     prefetchProducts();
   };
 
-  //function that sorts the products by the given sortBy
+  //function that flattens the page and product iterators to one dimension
   const getIterator = (i, j) => {
     return PAGE_SIZE * i + 1 + j;
   };

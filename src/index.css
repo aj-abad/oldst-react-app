@@ -23,3 +23,24 @@ code {
   width: 320px;
   max-width: 100%;
 }
+
+.loading-anim-l, .loading-anim-r {
+  display: inline-block;
+  animation: loading-anim 2s steps(4, end) infinite;
+}
+
+.loading-anim-r {
+  animation-direction: reverse;
+}
+
+@keyframes loading-anim {
+  0% {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+  50% {
+    clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+}

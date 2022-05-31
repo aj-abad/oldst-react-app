@@ -56,11 +56,7 @@ const Products = (props) => {
     };
   }, []);
 
-  /**
-   *  Function for getting the first page of products
-   *  Gets twice the number of products as the PAGE_SIZE
-   *  And caches half of them for use in the next page
-   */
+  //function for getting the first page of products and preloading the next
   const loadInitialProducts = () => {
     axios
       .get(
@@ -69,17 +65,10 @@ const Products = (props) => {
         }`
       )
       .then(({ data }) => {
-        //slice array in half
-        const half = Math.floor(data.length / 2);
-        const firstHalf = data.slice(0, half);
-        const secondHalf = data.slice(half);
-        //set products to first half
-        setProducts([firstHalf]);
-        //set cached products to second half
-        cachedProducts.current = secondHalf;
-
+        setProducts([data]);
         setIsLoading(false);
         isLoadingRef.current = false;
+        prefetchProducts();
       })
       .catch((err) => alert(err));
   };
